@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HotBeans</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #e6f2e6;
+      color: #2f4f2f;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #e6f2e6;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo { height: 50px; }
+
+    .site-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #c8e6c9;
+    }
+
+    .header-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-center {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .header-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    nav a {
+      color: #e6f2e6;
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #4caf50;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      animation: fadeIn 1s ease;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      background-color: #66bb6a;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d0f0c0;
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    .clock-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .clock-segment {
+      background-color: #3f51b5;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.6em;
+      font-weight: bold;
+      border-radius: 5px;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    main {
+      flex: 1;
+      background-color: #f0faf0;
+      padding: 30px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .content-box {
+      background-color: #e0f2e9;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
+      color: #2f4f2f;
+      font-size: 1.1em; /* Increased 10% */
+      text-align: center;
+    }
+
+    .content-box h3, .content-box ul, .content-box p {
+      text-align: center;
+    }
+
+    .subtitle {
+      margin-bottom: 20px;
+      font-size: 2em;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li::before {
+      content: "✅ ";
+    }
+
+    .newsletter {
+      margin: 30px auto 0;
+      text-align: center;
+      color: #2f4f2f;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      border: 1px solid #4caf50;
+      border-radius: 5px;
+      margin-right: 10px;
+      width: 250px;
+      max-width: 90%;
+      font-size: 1em;
+      color: #2f4f2f;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background-color: #2e7d32;
+      color: #e6f2e6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    .newsletter button:hover {
+      background-color: #1b5e20;
+    }
+
+    footer {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #c8e6c9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9em;
+      animation: fadeIn 3s ease;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="https://via.placeholder.com/50" alt="HotBeans Logo" class="logo" />
+    </div>
+    <div class="header-center">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="site-name">HotBeans</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    Empowering Tomorrow With Clean Tech 🌱
+  </section>
+
+  <!-- REAL-TIME CLOCK -->
+  <div id="clock" class="clock-container">
+    <div class="clock-segment" id="ampm">--</div>
+    <div class="clock-segment" id="hours">--</div>
+    <div class="clock-segment" id="minutes">--</div>
+    <div class="clock-segment" id="seconds">--</div>
+    <div class="clock-segment" id="day">---</div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div id="about" class="content-box">
+      <div class="subtitle">Who We Are</div>
+
+      <h3>Our Story</h3>
+      <p>HotBeans was born from a simple idea: energy and technology shouldn't compete—they should collaborate. Founded by engineers and visionaries, we saw a gap between global energy needs and the computing power fueling innovation. Since 2020, our journey has been about closing that gap, one solution at a time.</p>
+
+      <h3>Our Mission</h3>
+      <p>To fuse sustainable energy and smart technology into scalable systems that empower industries and communities.</p>
+
+      <h3>Our Vision</h3>
+      <p>A cleaner, more connected future—powered by responsible innovation.</p>
+
+      <h3>Core Values</h3>
+      <ul>
+        <li>💡 Innovation: We solve tomorrow’s challenges today.</li>
+        <li>🌱 Sustainability: Every solution is designed with our planet in mind.</li>
+        <li>🤝 Collaboration: Progress happens when we work together.</li>
+        <li>📈 Growth: We invest in people and possibilities.</li>
+        <li>🔒 Integrity: Trust and transparency guide every decision.</li>
+      </ul>
+
+      <h3>What We Do</h3>
+      <p>From AI-powered grids to cloud-integrated energy systems, HotBeans designs and deploys infrastructure at the intersection of tech and power. We serve startups, enterprises, and cities with solutions that scale securely and sustainably.</p>
+
+      <h3>Why Choose HotBeans?</h3>
+      <ul>
+        <li>🚀 Proven record in delivering green-tech integration at scale.</li>
+        <li>🧠 Experts across energy, data, and computing domains.</li>
+        <li>⚡ Seamless, ethical, and eco-conscious solutions tailored to your needs.</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <h3>Subscribe to our Newsletter</h3>
+    <input type="email" placeholder="Enter your email" />
+    <button>Subscribe</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Dking Hot Beans Website. All rights reserved.
+  </footer>
+
+  <!-- CLOCK SCRIPT -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const hour12 = hours % 12 || 12;
+
+      document.getElementById('ampm').textContent = ampm;
+      document.getElementById('hours').textContent = hour12.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = now.getSeconds().toString().padStart(2, '0');
+
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      document.getElementById('day').textContent = days[now.getDay()];
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
