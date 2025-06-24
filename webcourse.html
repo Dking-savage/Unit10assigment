@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotBeans Courses</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0faf0;
+      color: #2f4f2f;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    header .logo {
+      height: 40px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background-color: #4caf50;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #66bb6a;
+    }
+
+    .site-name {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .content-box {
+      background-color: #e0f2e9;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .content-box > p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #4caf50;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .course-card h4 {
+      font-size: 1.1em;
+      margin: 15px;
+      color: #2e7d32;
+    }
+
+    .course-card a {
+      margin: 0 15px 15px;
+      text-decoration: none;
+      padding: 10px;
+      text-align: center;
+      background-color: #4caf50;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .course-card a:hover {
+      background-color: #388e3c;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: #c8e6c9;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://obeesekid.github.io/HotBeansWeb/train.png" class="logo" alt="Logo" />
+    <nav>
+       <!-- Navigation links to separate pages -->
+        <a href="index.html">HomePage</a>
+        <a href="about.html">About Us</a>
+        <a href="webcourse.html">Web Course</a>
+        <a href="staffprofiles.html">Staff Profiles</a>
+        <a href="jobapplication.html">Job Application</a>
+    </nav>
+    <div class="site-name">HotBeans</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="content-box">
+      <div class="subtitle">Featured Web Courses</div>
+      <p>Browse a curated selection of high‑quality, online courses that blend sustainable energy with advanced computing concepts.</p>
+
+      <div class="filter-bar">
+        <label for="category">Filter by Category: </label>
+        <select id="category" onchange="filterCourses()">
+          <option value="all">All</option>
+          <option value="energy">Energy</option>
+          <option value="computing">Computing</option>
+        </select>
+      </div>
+
+      <div class="course-grid" id="courseGrid">
+
+        <!-- Energy Courses -->
+        <div class="course-card" data-category="energy">
+          <img src="https://th.bing.com/th/id/OIP.IIJOmNKKhjeoMBYE1Bei_AHaFW?r=0&rs=1&pid=ImgDetMain" alt="Energy & Sustainability">
+          <h4>Energy & Sustainability — Data Center Dynamics</h4>
+          <a href="https://www.datacenterdynamics.com/en/dcd-academy/energy-and-sustainability/" target="_blank">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="energy">
+          <img src="https://th.bing.com/th/id/R.642cf99c6b5760a55d04efd6577e889a?rik=iepC7qQCRUOMhA&pid=ImgRaw&r=0" alt="RE100">
+          <h4>RE100: Intro to Renewable Energy — SolarEnergy.org</h4>
+          <a href="https://www.solarenergy.org/courses/" target="_blank">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="energy">
+          <img src="https://i1.wp.com/www.intelligentliving.co/wp-content/uploads/2019/12/windturbines-scaled.jpg?fit=2560%2C1923&ssl=1" alt="Wind Energy">
+          <h4>Scientific Programming for Wind Energy — DTU</h4>
+          <a href="https://www.dtu.dk/english" target="_blank">View Course</a>
+        </div>
+
+        <!-- Computing Courses -->
+        <div class="course-card" data-category="computing">
+          <img src="https://www.advancedsciencenews.com/wp-content/uploads/2019/03/monitor-1307227_1920-e1551874269444-1.jpg" alt="Energy Efficient Computing">
+          <h4>Energy‑Efficient Computing — EuroCC@Greece</h4>
+          <a href="#">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="computing">
+          <img src="https://thedatascientist.com/wp-content/uploads/2024/07/image-13.png" alt="AI Energy">
+          <h4>AI for Energy Systems — FutureLearn</h4>
+          <a href="https://www.futurelearn.com/" target="_blank">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="computing">
+          <img src="https://www.aeologic.com/blog/wp-content/uploads/2024/01/Energy-Management-with-IoT-Solutions-1024x590.png" alt="IoT Energy">
+          <h4>IoT for Smart Energy — Coursera</h4>
+          <a href="https://www.coursera.org" target="_blank">View Course</a>
+        </div>
+
+        <!-- Mixed -->
+        <div class="course-card" data-category="energy">
+          <img src="https://wallpaperaccess.com/full/2183826.jpg" alt="Green Energy">
+          <h4>Basics of Green Energy — EdX</h4>
+          <a href="https://www.edx.org" target="_blank">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="computing">
+          <img src="https://cdn.plainconcepts.com/wp-content/uploads/2022/02/Cloud-Computing-_-Sustainability.jpg" alt="Cloud">
+          <h4>Sustainable Cloud Infrastructure — Microsoft Learn</h4>
+          <a href="https://learn.microsoft.com" target="_blank">View Course</a>
+        </div>
+
+        <div class="course-card" data-category="computing">
+          <img src="https://daxg39y63pxwu.cloudfront.net/images/blog/applications-of-machine-learning-in-energy-sector/Applications_of_Machine_Learning_in_Energy_Sector.png" alt="ML Energy">
+          <h4>Machine Learning in Energy — Udacity</h4>
+          <a href="https://www.udacity.com" target="_blank">View Course</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Dking Hot Beans Website. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for filtering -->
+  <script>
+    function filterCourses() {
+      const value = document.getElementById('category').value;
+      const cards = document.querySelectorAll('.course-card');
+      cards.forEach(card => {
+        card.style.display = (value === 'all' || card.dataset.category === value) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
