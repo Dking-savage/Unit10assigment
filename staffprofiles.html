@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Staff Profiles - HotBeans</title>
+  <style>
+    /* ========== GLOBAL STYLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #e6f2e6;
+      color: #2f4f2f;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #e6f2e6;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .header-left, .header-center, .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left {
+      flex: 1;
+    }
+
+    .header-center {
+      flex: 2;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .header-right {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .site-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #c8e6c9;
+    }
+
+    nav a {
+      color: #e6f2e6;
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #4caf50;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #66bb6a;
+      transform: scale(1.05);
+    }
+
+    nav a:focus {
+      outline: 2px solid #c8e6c9;
+      outline-offset: 2px;
+    }
+
+    nav a[aria-current="page"] {
+      background-color: #66bb6a;
+      cursor: default;
+      pointer-events: none;
+      transform: none;
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 40px 60px;
+      background-color: #f0faf0;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 20px 15px;
+      }
+    }
+
+    .content-box {
+      background-color: #e0f2e9;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1em;
+      margin-bottom: 30px;
+    }
+
+    /* ========== STAFF GRID ========== */
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .staff-card {
+      background-color: #f5f5f5;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .staff-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .staff-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .staff-card h3 {
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .staff-card .role {
+      color: #777;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    footer {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #c8e6c9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9em;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="https://obeesekid.github.io/HotBeansWeb/train.png" alt="HotBeans Logo" class="logo" />
+    </div>
+    <div class="header-center">
+      <nav>
+        <a href="index.html">HomePage</a>
+        <a href="about.html">About Us</a>
+        <a href="webcourse.html">Web Course</a>
+        <a href="staffprofiles.html" aria-current="page">Staff Profiles</a>
+        <a href="jobapplication.html">Job Application</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="site-name">HotBeans</div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="content-box">
+      <div class="subtitle">Our Team</div>
+      <p>Meet the professionals behind HotBeans' vision to unite sustainable energy and computing innovation.</p>
+
+      <!-- SEARCH INPUT -->
+      <div style="text-align: center; margin-bottom: 20px;">
+        <input 
+          type="text" 
+          id="staffSearch" 
+          placeholder="Search staff by name or role..." 
+          style="padding: 10px; width: 300px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc;"
+          aria-label="Search staff profiles"
+        />
+      </div>
+
+      <!-- STAFF GRID -->
+      <div class="staff-grid" id="staffGrid">
+        <div class="staff-card">
+          <img src="https://cdn4.whatculture.com/images/2020/05/19c66db0ec194222-1200x675.png" alt="Portrait photo of Dexter Moser" loading="lazy" />
+          <h3>Dexter moser</h3>
+          <em class="role">Director of Sustainability</em>
+          <p>Dexter leads our renewable energy strategy and eco-system innovation.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://cdn.wallpapersafari.com/48/77/MDCy8J.jpg" alt="Portrait photo of Debra Morgan" loading="lazy" />
+          <h3>Debra Morgan</h3>
+          <em class="role">Chief Technical Officer (CTO)</em>
+          <p>Debra oversees the development of green cloud and computing platforms at scale.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://i1.sndcdn.com/artworks-BwBrz2qwRffZMe2I-uJHryw-t1080x1080.jpg" alt="Portrait photo of Rudy cooper" loading="lazy" />
+          <h3>Rudy Cooper</h3>
+          <em class="role">Product Manager</em>
+          <p>Rudy coordinates product development ensuring alignment with sustainability goals.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://preview.redd.it/do5zxuj7eqp81.jpg?auto=webp&s=a5eb4378a92180be1b3843276e3fa4529875658c" alt="Portrait photo of Genevieve Becks" loading="lazy" />
+          <h3>Genevieve Becks</h3>
+          <em class="role">Renewable Energy Engineer</em>
+          <p>Becks researches and develops innovative sustainable energy solutions.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Penn_Badgley_as_Joe_Goldberg_1.png" alt="Portrait photo of Joe Goldberg" loading="lazy" />
+          <h3>Joe Goldberg</h3>
+          <em class="role">Software Engineer</em>
+          <p>Joe builds and maintains software platforms powering HotBeans' innovations.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://th.bing.com/th/id/R.410e7fd2de967161e0618049b7637f86?rik=Mffb6flBjNWTMA&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f18600000%2fKatherine-katherine-pierce-18626972-854-717.jpg&ehk=ZDaOlbORBW3lVDwwyfj2o9sTbt5MZK1Yil7fC5mjwls%3d&risl=&pid=ImgRaw&r=0" alt="Portrait photo of Katherine Pierce" loading="lazy" />
+          <h3>Katherine Pierce</h3>
+          <em class="role">UX/UI Designer</em>
+          <p>Katherine designs user-friendly interfaces for HotBeans’ web and mobile apps.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://cdn.seat42f.com/wp-content/uploads/2023/03/29152005/Snowfall_Ep607-ScDay-RayM-00577R.jpg" alt="Portrait photo of Franklin Saint" loading="lazy" />
+          <h3>Franklin Saint</h3>
+          <em class="role">Web Course Coordinator</em>
+          <p>Franklin curates technical content for online sustainability learners.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://wallpapercave.com/wp/wp4638232.jpg" alt="Portrait photo of Rebekah Mikaelson" loading="lazy" />
+          <h3>Rebekah Mikaelson</h3>
+          <em class="role">Community Engagement Manager</em>
+          <p>Rebekah manages outreach, partnerships, and our innovation network.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://www.mordeo.org/files/uploads/2020/10/Actress-Scarlett-Johansson-2020-Photoshoot-New-4K-Ultra-HD-Mobile-Wallpaper-scaled.jpg" alt="Portrait photo of Natasha Romanoff" loading="lazy" />
+          <h3>Natasha Romanoff</h3>
+          <em class="role">Marketing & Communications Specialist</em>
+          <p>Natasha crafts brand messaging and campaigns to promote HotBeans' mission.</p>
+        </div>
+
+        <div class="staff-card">
+          <img src="https://th.bing.com/th/id/R.4245baf23584c7876402810f488c95d9?rik=Z2Z0NahasZXV9w&riu=http%3a%2f%2fimg1.wikia.nocookie.net%2f__cb20150705085740%2fvillains%2fimages%2fc%2fcb%2fDeanWinchester.jpg&ehk=UMj3mf4u767mj6qNdmpFOagalrDlxncJLWVnqzFl7FM%3d&risl=&pid=ImgRaw&r=0" alt="Portrait photo of Dean Winchester" loading="lazy" />
+          <h3>Dean Winchester</h3>
+          <em class="role">Customer Support / Client Relations</em>
+          <p>Dean provides top-notch support and builds strong client relationships.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 HotBeans. All rights reserved.
+  </footer>
+
+  <!-- SEARCH FILTER SCRIPT -->
+  <script>
+    const searchInput = document.getElementById('staffSearch');
+    const staffGrid = document.getElementById('staffGrid');
+    const staffCards = staffGrid.getElementsByClassName('staff-card');
+
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+
+      Array.from(staffCards).forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const role = card.querySelector('.role').textContent.toLowerCase();
+
+        if (name.includes(filter) || role.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
