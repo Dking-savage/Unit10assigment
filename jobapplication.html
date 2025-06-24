@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotBeans Job Application</title>
+  <style>
+    /* === GLOBAL === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e6f2e6;
+      color: #2f4f2f;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* === HEADER === */
+    header {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #e6f2e6;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .header-left, .header-center, .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left { flex: 1; }
+    .header-center {
+      flex: 2;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .header-right {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .site-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #c8e6c9;
+    }
+
+    nav a {
+      color: #e6f2e6;
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #4caf50;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #66bb6a;
+      transform: scale(1.05);
+    }
+
+    nav a:focus {
+      outline: 2px solid #c8e6c9;
+      outline-offset: 2px;
+    }
+
+    nav a[aria-current="page"] {
+      background-color: #66bb6a;
+      cursor: default;
+      pointer-events: none;
+      transform: none;
+    }
+
+    /* === MAIN === */
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(46, 125, 50, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="number"],
+    input[type="date"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto; /* This centers the entire button horizontally */
+      text-align: center; /* This ensures the text inside is centered */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #388e3c;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* === FOOTER === */
+    footer {
+      height: 12.5vh;
+      background-color: #2e7d32;
+      color: #c8e6c9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9em;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="https://obeesekid.github.io/HotBeansWeb/train.png" alt="HotBeans Logo" class="logo" />
+    </div>
+    <div class="header-center">
+      <nav>
+        <a href="index.html">HomePage</a>
+        <a href="about.html">About Us</a>
+        <a href="webcourse.html">Web Course</a>
+        <a href="staffprofiles.html">Staff Profiles</a>
+        <a href="jobapplication.html" aria-current="page">Job Application</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="site-name">HotBeans</div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>Job Application Form</h2>
+    <form id="jobForm">
+      <div class="form-group">
+        <label for="fullname">Full Name *</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="text" id="phone" name="phone" required pattern="\\+?\\d{10,15}" title="Enter a valid phone number" />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address *</label>
+        <textarea id="address" name="address" required placeholder="Street, City, ZIP Code, Country"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="nationality">Nationality *</label>
+        <select id="nationality" name="nationality" required>
+          <option value="">-- Select Nationality --</option>
+          <optgroup label="Africa">
+            <option value="Nigeria">Nigeria</option>
+            <option value="Egypt">Egypt</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Morocco">Morocco</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Italy">Italy</option>
+            <option value="Spain">Spain</option>
+          </optgroup>
+          <optgroup label="Asia">
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="Japan">Japan</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Indonesia">Indonesia</option>
+          </optgroup>
+          <optgroup label="North America">
+            <option value="United States">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Cuba">Cuba</option>
+            <option value="Jamaica">Jamaica</option>
+          </optgroup>
+          <optgroup label="South America">
+            <option value="Brazil">Brazil</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Peru">Peru</option>
+            <option value="Chile">Chile</option>
+          </optgroup>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group hidden" id="otherNationalityGroup">
+        <label for="otherNationality">Please specify your nationality</label>
+        <input type="text" id="otherNationality" name="otherNationality" />
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Years of Experience *</label>
+        <input type="number" id="experience" name="experience" min="0" required />
+      </div>
+
+      <div class="form-group">
+        <label for="linkedin">Portfolio / LinkedIn URL</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://..." />
+      </div>
+
+      <div class="form-group">
+        <label for="position">Position Applied For *</label>
+        <select id="position" name="position" required>
+          <option value="">Select</option>
+          <option value="frontend">Frontend Developer</option>
+          <option value="backend">Backend Developer</option>
+          <option value="fullstack">Full Stack Developer</option>
+          <option value="designer">UI/UX Designer</option>
+          <option value="intern">Internship</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="coverLetter">Why do you want to join HotBeans?</label>
+        <textarea id="coverLetter" name="coverLetter"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="cv">Upload Your CV (PDF or Word DOCX) *</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.docx" required />
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" name="consent" required />
+          I consent to the processing of my data.
+        </label>
+      </div>
+
+      <input type="submit" value="Submit Application" />
+      <div class="success-message" id="successMessage">Thank you! Your application has been submitted.</div>
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Dking Hot Beans Website. All rights reserved.
+  </footer>
+
+  <!-- Script to Show/Hide "Other Nationality" -->
+  <script>
+    const nationalitySelect = document.getElementById("nationality");
+    const otherGroup = document.getElementById("otherNationalityGroup");
+
+    nationalitySelect.addEventListener("change", () => {
+      if (nationalitySelect.value === "Other") {
+        otherGroup.classList.remove("hidden");
+        document.getElementById("otherNationality").setAttribute("required", "true");
+      } else {
+        otherGroup.classList.add("hidden");
+        document.getElementById("otherNationality").removeAttribute("required");
+      }
+    });
+
+    document.getElementById("jobForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("successMessage").style.display = "block";
+      this.reset();
+      otherGroup.classList.add("hidden");
+    });
+  </script>
+
+</body>
+</html>
